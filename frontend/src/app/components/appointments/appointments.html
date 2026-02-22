@@ -1,0 +1,120 @@
+<app-special-offer 
+  [treatmentName]="currentDeal.name" 
+  [discount]="currentDeal.sale"
+  (offerClaimed)="handleSpecialOffer($event)">
+</app-special-offer>
+
+<div class="appointment-container">
+  <h2>קביעת תור חכם</h2>
+
+  <div class="selection-section">
+    <div class="field">
+        <label>שם מלא</label>
+        <input type="text" [(ngModel)]="clientName" class="name-input">
+    </div>
+    <div class="field">
+        <label>מספר טלפון</label>
+        <input type="tel" [(ngModel)]="appointment.phone" class="name-input" placeholder="הקלידי מספר טלפון">
+    </div>
+
+    <div class="field">
+      <label>בחרי את סוג הטיפול המבוקש:</label>
+      <select [(ngModel)]="selectedTreatmentType" class="treatment-select">
+        <option value="">-- בחרי טיפול מהרשימה --</option>
+        @for (treatment of treatmentsList; track treatment._id) {
+          <option [value]="treatment.name">{{ treatment.name }}</option>
+        }
+      </select>
+    </div>
+  </div>
+
+  @if (selectedTreatmentType) {
+    <div class="slots-section">
+      <h3>תורים פנויים עבור: {{ selectedTreatmentType }}</h3>
+      
+      <div class="slots-grid">
+        @for (slot of filteredSlots; track slot._id) {
+          <div class="slot-card">
+            <p class="date">📅 {{ slot.date }}</p>
+            <p class="time">⏰ {{ slot.time }}</p>
+            <button class="book-btn" (click)="bookSlot(slot)">קבעי תור זה</button>
+          </div>
+        } @empty {
+          <p class="no-slots">מצטערים, אין כרגע תורים פנויים לטיפול זה.</p>
+        }
+      </div>
+    </div>
+  }
+</div>
+
+<div class="appointment-container">
+  <div class="actions-section" style="text-align: center; margin: 30px 0;">
+    <button class="toggle-btn" (click)="toggleAppointmentsList()">
+      {{ showAppointmentsList ? 'הסתר תורים שנקבעו' : 'הצג תורים שנקבעו' }}
+    </button>
+  </div>
+
+  @if (showAppointmentsList) {
+    <div class="table-section" style="animation: fadeIn 0.5s;">
+      <h3>תורים שנקבעו במערכת</h3>
+      
+      <div class="table-wrapper">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>לקוח</th>
+              <th>טיפול</th>
+              <th>זמן</th>
+              <th>פעולות</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (appt of appointments; track appt._id) {
+              @if (!appt.isAvailable) {
+                <tr>
+                  <td>{{ appt.customerName }}</td>
+                  <td>{{ appt.treatmentType }}</td>
+                  <td>{{ appt.date }} | {{ appt.time }}</td>
+                  <td>
+                    <button class="cancel-btn" (click)="cancelAppointment(appt._id)">ביטול</button>
+                  </td>
+                </tr>
+              }
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  }
+</div>
+
+<div class="reviews-section">
+  <hr class="divider">
+  <h3>לקוחות ממליצים</h3>
+
+  <div class="add-review-form">
+    <h4>הוספת משוב חדש</h4>
+    <input [(ngModel)]="newReview.name" placeholder="שמך המלא" class="review-input">
+    <select [(ngModel)]="newReview.rating" class="review-input">
+      <option [value]="5">⭐⭐⭐⭐⭐ (5 כוכבים)</option>
+      <option [value]="4">⭐⭐⭐⭐ (4 כוכבים)</option>
+      <option [value]="3">⭐⭐⭐ (3 כוכבים)</option>
+      <option [value]="2">⭐⭐ (2 כוכבים)</option>
+      <option [value]="1">⭐ (כוכב אחד)</option>
+    </select>
+    <textarea [(ngModel)]="newReview.comment" placeholder="כתבי כאן את המשוב שלך..." class="review-textarea"></textarea>
+    <button (click)="addReview()" class="submit-review-btn">שלחי משוב</button>
+  </div>
+
+  <div class="reviews-list">
+    @for (review of reviews; track $index) {
+      <div class="review-card">
+        <div class="review-header">
+          <strong>{{ review.name }}</strong>
+          <span class="stars">{{ '⭐'.repeat(review.rating) }}</span>
+        </div>
+        <p>{{ review.comment }}</p>
+      </div>
+    }
+  </div>
+</div>

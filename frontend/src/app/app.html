@@ -1,0 +1,47 @@
+<!-- ניווט -->
+<nav class="navbar-container">
+  <div class="logo-wrapper">
+    <a routerLink="/">
+      <img src="images/logo.png" alt="Logo" class="nav-logo">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">דף הבית</a>
+    <a routerLink="/treatments" routerLinkActive="active-link">רשימת טיפולים</a>
+    <a routerLink="/add-treatment" routerLinkActive="active-link">הוספת טיפול</a>
+    <a routerLink="/appointments" routerLinkActive="active-link">קביעת תור</a>
+    <a routerLink="/branches" routerLinkActive="active-link">סניפים</a>
+  </div>
+</nav>
+
+<div style="padding: 20px;">
+  <router-outlet></router-outlet>
+</div>
+<footer style="background-color: #222; color: #fff; padding: 40px 20px; direction: rtl; margin-top: 50px;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;">
+    
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="color: #d4af37; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 5px;">המרכז שלנו</h3>
+      <p style="line-height: 1.6; color: #ccc;">אנו מחויבים למקצועיות, שירות אדיב ואווירה רגועה בכל אחד מהסניפים שלנו ברחבי הארץ.</p>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="color: #d4af37; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 5px;">צור קשר</h3>
+      <p style="margin: 5px 0;">📞 טלפון: 02-1234567</p>
+      <p style="margin: 5px 0;">📧 אימייל: office@beauty-center.co.il</p>
+      <p style="margin: 5px 0;">📍 משרד ראשי: ירושלים</p>
+    </div>
+
+    <div style="flex: 1; min-width: 200px;">
+      <h3 style="color: #d4af37; border-bottom: 2px solid #d4af37; display: inline-block; padding-bottom: 5px;">שעות פעילות</h3>
+      <p style="margin: 5px 0;">ימים א'-ה': 09:00 - 20:00</p>
+      <p style="margin: 5px 0;">יום ו': 08:30 - 13:00</p>
+      <p style="margin: 5px 0;">מוצ"ש: סגור</p>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; border-top: 1px solid #444; padding-top: 20px; font-size: 0.9rem; color: #888;">
+    © 2026  כל הזכויות שמורות לSHIRA COSMETIC
+  </div>
+</footer>

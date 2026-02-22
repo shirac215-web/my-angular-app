@@ -1,0 +1,22 @@
+<div class="branches-container">
+    <h2 class="section-title">הסניפים שלנו</h2>
+    
+    <div class="branches-grid">
+        <div *ngFor="let branch of branches" class="branch-card">
+            <div>
+                <div class="branch-city">{{ branch.city }}</div>
+                <div class="branch-details">
+                    <p><strong>כתובת:</strong> {{ branch.address }}</p>
+                    <p><strong>שעות פעילות:</strong> {{ branch.hours }}</p>
+                </div>
+            </div>
+
+            <div class="branch-footer">
+                <span class="phone-label">טלפון לתיאום:</span>
+                <span class="phone-value">{{ branch.phone }}</span>
+            </div>
+
+            <button class="btn-action">נווט לסניף</button>
+        </div>
+    </div>
+</div>

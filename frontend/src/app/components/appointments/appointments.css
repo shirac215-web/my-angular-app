@@ -1,0 +1,216 @@
+.appointment-container {
+    
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    direction: rtl; 
+    text-align: right;
+    box-sizing: border-box; /* מבטיח שהפדינג לא ינפח את הריבוע */
+}
+
+.name-section {
+    margin-bottom: 30px;
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #eee;
+}
+
+.name-input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+.slots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.slot-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.slot-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.treatment-tag {
+    background: #d4af37;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.book-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.book-btn:hover {
+    background: #d4af37;
+}
+
+.toast-success {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4caf50;
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+.cancel-btn {
+    background-color: #ff4d4d; /* אדום התראה */
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.cancel-btn:hover {
+    background-color: #e60000; /* אדום כהה יותר במעבר עכבר */
+    transform: scale(1.05);
+}
+
+.cancel-btn:active {
+    transform: scale(0.95);
+}
+
+/* עיצוב התא של הכפתור בטבלה */
+.styled-table td:last-child {
+    text-align: center;
+}
+.toggle-btn {
+    background-color: #d4af37; /* זהב */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #b8962d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* אנימציה עדינה להופעת הטבלה */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.selection-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+
+.treatment-select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+}
+
+.slots-section h3 {
+    color: #333;
+    border-right: 4px solid #d4af37;
+    padding-right: 15px;
+    margin-bottom: 20px;
+}
+.reviews-section {
+    margin-top: 50px;
+}
+
+.add-review-form {
+    background: #fdfdfd;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #d4af37;
+    margin-bottom: 30px;
+}
+
+.review-input, .review-textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.review-textarea {
+    height: 80px;
+    resize: none;
+}
+
+.submit-review-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submit-review-btn:hover {
+    background-color: #d4af37;
+}
+
+.review-card {
+    background: white;
+    border-right: 5px solid #d4af37;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.stars {
+    color: #d4af37;
+}

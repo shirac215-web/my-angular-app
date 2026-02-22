@@ -1,0 +1,31 @@
+<div class="treatments-container">
+  <h1 class="section-title">רשימת הטיפולים שלנו</h1>
+
+  <div class="treatments-grid">
+    @for (item of treatments; track $index) {
+      <div class="treatment-card">
+        <div class="treatment-image-container">
+           <img [src]="item.imageUrl" alt="{{ item.name }}" class="treatment-image">
+       </div>
+        <div class="card-content">
+          <h3 class="treatment-name">{{ item.name }}</h3>
+          <p class="treatment-description">{{ item.description }}</p>
+          <div class="treatment-footer">
+            <span class="price-label">מחיר:</span>
+            <span class="price-value">{{ item.price }} ₪</span>
+          </div>
+          <button 
+            [routerLink]="['/appointments']" 
+            [queryParams]="{ treatment: item.name }" 
+            class="btn-book">
+            הזמנת טיפול
+          </button>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <p>כרגע אין טיפולים להצגה.</p>
+      </div>
+    }
+  </div>
+</div>

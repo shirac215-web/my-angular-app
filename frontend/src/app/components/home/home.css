@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;400;600;700;800&display=swap');
+
+.hero-container {
+    position: relative;
+    height: 85vh; 
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-image 1s ease-in-out;
+    /* הבהרת הרקע בצורה אחידה ונקייה */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background-blend-mode: overlay;
+}
+
+.hero-content {
+    font-family: 'Assistant', sans-serif; /* שימוש בפונט החדש */
+    direction: rtl;
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+.main-home-logo {
+    width: 30vw; 
+    min-width: 140px;
+    max-width: 320px; 
+    height: auto;
+    margin-bottom: 35px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInScale 1.5s ease-out;
+}
+
+h1 {
+    color: #2c2c2c; 
+    font-size: 4.2rem; /* הגדלה לנוכחות מרשימה */
+    font-weight: 800; /* משקל כבד וסמכותי */
+    margin-bottom: 15px;
+    letter-spacing: -1px; /* צמצום קל למראה עיצובי */
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    animation: slideDownFade 1s ease-out forwards;
+}
+
+p {
+    color: #5d5d5d;
+    font-size: 1.8rem;
+    font-weight: 300; /* משקל דק יוצר ניגודיות אלגנטית ל-h1 */
+    margin-bottom: 45px;
+    letter-spacing: 1.5px; /* מרווח אותיות רחב למראה יוקרתי */
+    animation: fadeInText 2.5s ease-in;
+}
+
+/* שדרוג הכפתורים שיתאימו לכתב החדש */
+.btn-gold {
+    background-color: #d4af37;
+    color: white;
+    padding: 16px 45px;
+    border: none;
+    border-radius: 50px; /* כפתור עגול ומודרני יותר */
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px) scale(1.05);
+    background-color: #c4a030;
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #333;
+    padding: 16px 45px;
+    border: 2px solid #d4af37; /* מסגרת זהב במקום אפור */
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background-color: rgba(212, 175, 55, 0.1);
+    border-color: #c4a030;
+    transform: translateY(-3px);
+}
+
+/* אנימציות חדשות */
+@keyframes fadeInScale {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideDownFade {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* התאמה למובייל */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem; }
+    p { font-size: 1.4rem; letter-spacing: 0.5px; }
+    .btn-gold, .btn-outline { width: 80%; margin: 10px 0; }
+    .btn-outline { margin-right: 0; }
+}
