@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class TreatmentService {
   // זו הכתובת שבדקנו קודם בדפדפן והיא עבדה
-  private apiUrl = 'http://localhost:3000/api/treatments';
+  private apiUrl = '/api/treatments';
 
   constructor(private http: HttpClient) { }
 
@@ -17,23 +17,23 @@ export class TreatmentService {
   }
   //הוספת טיפול
 addTreatment(treatment: any): Observable<any> {
-  return this.http.post('http://localhost:3000/api/treatments', treatment);
+  return this.http.post('/api/treatments', treatment);
 }
 //הוספת תור
 addAppointment(appointment: any): Observable<any> {
-  return this.http.post('http://localhost:3000/api/appointments', appointment);
+  return this.http.post('/api/appointments', appointment);
 }
 //שליפת כל התורים
 getAppointments(): Observable<any[]> {
-  return this.http.get<any[]>('http://localhost:3000/api/appointments');
+  return this.http.get<any[]>('/api/appointments');
 }
 
 //פונקציית מחיקת תור
 // deleteAppointment(id: string): Observable<any> {
-//   return this.http.delete(`http://localhost:3000/api/appointments/${id}`);
+//   return this.http.delete(`/api/appointments/${id}`);
 // }
 getBranches(): Observable<any[]> {
-  return this.http.get<any[]>('http://localhost:3000/api/branches');
+  return this.http.get<any[]>('/api/branches');
 }
 bookAppointment(id: string, name: string, phone: string, available: boolean): Observable<any> {
     const body = { 
@@ -43,7 +43,7 @@ bookAppointment(id: string, name: string, phone: string, available: boolean): Ob
       isAvailable: available 
     };
     // שליחת בקשת POST לעדכון הנתונים בשרת
-    return this.http.post(`http://localhost:3000/api/appointments/update-status`, body);
+    return this.http.post(`/api/appointments/update-status`, body);
   }
 
 }

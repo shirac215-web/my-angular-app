@@ -33,6 +33,7 @@ export class Appointments implements OnInit {
 
   constructor(
     private treatmentService: TreatmentService, 
+    //מה זה CDR
     private cdr: ChangeDetectorRef,
     private route: ActivatedRoute
   ) {}
@@ -127,6 +128,7 @@ export class Appointments implements OnInit {
 
   addReview() {
     if (this.newReview.name && this.newReview.comment) {
+      //מה זה UNSHIFT
       this.reviews.unshift({ ...this.newReview });
       this.newReview = { name: '', rating: 5, comment: '' };
     }
