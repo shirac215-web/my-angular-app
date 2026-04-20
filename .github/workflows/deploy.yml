@@ -35,9 +35,9 @@ jobs:
             sudo cp -r ~/my-angular-app/frontend/dist/frontend/browser/* /var/www/html/
             
             # עדכון ה-Backend (בהנחה שגם הוא בגיט)
-            cd ~/my-angular-app/
+            cd ~/my-angular-app/server
             git pull origin main
-            npm install --prefix server
+            npm install
             
             # הפעלה מחדש של השרת
             sudo systemctl restart my-node-app
